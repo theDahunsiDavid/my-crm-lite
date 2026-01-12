@@ -31,41 +31,53 @@ export default async function ClientDetailPage({
   }
 
   return (
-    <div className="">
-      <div className="">
+    <div className="p-8 max-w-4xl mx-auto">
+      <div className="flex justify-between items-center mb-6">
         <div>
-          <Link href="/clients" className="">
+          <Link
+            href="/clients"
+            className="text-blue-600 hover:text-blue-800 text-sm mb-2 inline-block"
+          >
             ← Back to Clients
           </Link>
-          <h1 className="">{client.name}</h1>
+          <h1 className="text-3xl font-bold">{client.name}</h1>
         </div>
-        <div className="">
-          <Link href={`/clients/${client.id}/edit`} className="">
+        <div className="flex gap-3">
+          <Link
+            href={`/clients/${client.id}/edit`}
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+          >
             Edit Client
           </Link>
           <DeleteClientButton clientId={client.id} clientName={client.name} />
         </div>
       </div>
 
-      <div className="">
+      <div className="bg-white rounded-lg shadow p-6 space-y-6">
         <div>
-          <h3 className="">Email</h3>
-          <a href={`mailto:${client.email}`} className="">
+          <h3 className="text-sm font-medium text-gray-500 mb-1">Email</h3>
+          <a
+            href={`mailto:${client.email}`}
+            className="text-blue-600 hover:text-blue-800"
+          >
             {client.email}
           </a>
         </div>
 
         {client.company && (
           <div>
-            <h3 className="">Company</h3>
-            <p className="">{client.company}</p>
+            <h3 className="text-sm font-medium text-gray-500 mb-1">Company</h3>
+            <p className="text-gray-900">{client.company}</p>
           </div>
         )}
 
         {client.phone && (
           <div>
-            <h3 className="">Phone</h3>
-            <a href={`tel:${client.phone}`} className="">
+            <h3 className="text-sm font-medium text-gray-500 mb-1">Phone</h3>
+            <a
+              href={`tel:${client.phone}`}
+              className="text-blue-600 hover:text-blue-800"
+            >
               {client.phone}
             </a>
           </div>
@@ -73,14 +85,16 @@ export default async function ClientDetailPage({
 
         {client.address && (
           <div>
-            <h3 className="">Address</h3>
-            <p className="">{client.address}</p>
+            <h3 className="text-sm font-medium text-gray-500 mb-1">Address</h3>
+            <p className="text-gray-900 whitespace-pre-wrap">
+              {client.address}
+            </p>
           </div>
         )}
 
-        <div className="">
-          <h3 className="">Created</h3>
-          <p className="">
+        <div className="pt-4 border-t border-gray-200">
+          <h3 className="text-sm font-medium text-gray-500 mb-1">Created</h3>
+          <p className="text-gray-900">
             {new Date(client.created_at).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
@@ -90,9 +104,9 @@ export default async function ClientDetailPage({
         </div>
       </div>
 
-      <div className="">
-        <h2 className="">Projects</h2>
-        <div className="">
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold mb-4">Projects</h2>
+        <div className="bg-white rounded-lg shadow p-8 text-center text-gray-500">
           No projects yet. Projects will be added on Day 3.
         </div>
       </div>
